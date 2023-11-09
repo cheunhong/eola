@@ -1,2 +1,2 @@
-# ducklingsdb
+# SwanDB
 Open Source Distributed DuckDB
