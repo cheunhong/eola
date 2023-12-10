@@ -54,5 +54,5 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            PYTHON_VERSION=${{ github.event.inputs.python_version }}
             DUCKDB_VERSION=${{ github.event.inputs.duckdb_version }}
+            PYTHON_VERSION=${{ github.event.inputs.python_version }}
