@@ -4,7 +4,7 @@ ARG PYTHON_VERSION=3.11
 FROM public.ecr.aws/lambda/python:${PYTHON_VERSION}
 
 # Install pip and other dependencies
-RUN pip install duckdb=='${DUCKDB_VERSION}'
+RUN pip install duckdb==${DUCKDB_VERSION}
 
 RUN python3 -c "import duckdb; duckdb.query('INSTALL httpfs;');"
 
