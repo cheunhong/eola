@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "puddles"
+version = "0.1.0"
+description = "Open Source Distributed DuckDB"
+authors = ["cheunhong <chlin6755@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+duckdb = "^0.9.1"
+boto3 = "^1.28.82"
+sqlglot = "^19.8.3"
+numpy = "^1.26.2"
+pandas = "^2.1.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

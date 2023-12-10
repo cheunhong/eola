@@ -1,0 +1,15 @@
+ARG PYTHON_VERSION=3.11
+ARG DUCKDB_VERSION=0.9.2
+
+FROM public.ecr.aws/lambda/python:${PYTHON_VERSION}
+
+# Install pip and other dependencies
+RUN pip install duckdb==${DUCKDB_VERSION}
+
+RUN python3 -c "import duckdb; duckdb.query('INSTALL httpfs;');"
+
+# Copy function code
+COPY handlers/lambda.py ${LAMBDA_TASK_ROOT}
+
+# Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
+CMD [ "lambda.handler" ]
