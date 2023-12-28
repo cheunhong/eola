@@ -40,7 +40,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: chlin0330/puddles-lambda
+          images: chlin0330/eola-lambda
           tags: |
             ${{ github.event.inputs.duckdb_version }}-${{ github.event.inputs.python_version }}
             
