@@ -5,9 +5,11 @@ FROM public.ecr.aws/lambda/python:${PYTHON_VERSION}
 ARG DUCKDB_VERSION=0.9.2
 
 # Install pip and other dependencies
-RUN pip install duckdb==${DUCKDB_VERSION}
+RUN pip install duckdb==${DUCKDB_VERSION} pydantic
 
-RUN python3 -c "import duckdb; duckdb.query('INSTALL httpfs;');"
+ENV HOME=/home/eola
+
+RUN mkdir /home/eola && python3 -c "import duckdb; duckdb.install_extension('httpfs');"
 
 # Copy function code
 COPY handlers/lambda.py ${LAMBDA_TASK_ROOT}
